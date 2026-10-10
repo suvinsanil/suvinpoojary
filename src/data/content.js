@@ -8,7 +8,7 @@ export const personalInfo = {
   location: 'Udupi, India',
   github: 'https://github.com/suvinsanil',
   linkedin: 'https://linkedin.com/in/suvinpoojary',
-  resumeFile: '/resume.pdf',
+  resumeFile: '/Suvin_Poojary_Resume.pdf',
 };
 
 export const about = {
