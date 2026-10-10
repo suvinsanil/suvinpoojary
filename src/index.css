@@ -75,7 +75,7 @@ body {
 }
 
 ::selection {
-  @apply bg-accent-400/20 text-accent-600 dark:text-accent-300;
+  @apply bg-accent-400 bg-opacity-20 text-accent-600 dark:text-accent-300;
 }
 
 @layer utilities {
