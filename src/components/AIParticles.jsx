@@ -38,7 +38,7 @@ export default function AIParticles() {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = theme === 'dark' ? 'rgba(167, 139, 250, 0.4)' : 'rgba(99, 102, 241, 0.3)';
+        ctx.fillStyle = theme === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.1)';
         ctx.fill();
       }
     }
@@ -64,10 +64,7 @@ export default function AIParticles() {
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             const opacity = 1 - dist / 150;
-            ctx.strokeStyle =
-              theme === 'dark'
-                ? `rgba(167, 139, 250, ${opacity * 0.25})`
-                : `rgba(99, 102, 241, ${opacity * 0.2})`;
+            ctx.strokeStyle = theme === 'dark' ? `rgba(255, 255, 255, ${opacity * 0.15})` : `rgba(0, 0, 0, ${opacity * 0.1})`;
             ctx.stroke();
           }
         }
@@ -90,4 +87,6 @@ export default function AIParticles() {
     />
   );
 }
+
+
 

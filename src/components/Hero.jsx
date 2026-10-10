@@ -8,12 +8,7 @@ import DownloadIcon from './icons/DownloadIcon';
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-1/4 -left-1/4 w-[50vw] h-[50vw] bg-accent-500/10 dark:bg-accent-500/5 blur-3xl rounded-full mix-blend-multiply dark:mix-blend-screen animate-float" />
-        <div className="absolute top-1/4 -right-1/4 w-[40vw] h-[40vw] bg-accent-600/10 dark:bg-accent-600/5 blur-3xl rounded-full mix-blend-multiply dark:mix-blend-screen animate-float" style={{ animationDelay: '2s' }} />
-        <div className="absolute -bottom-1/4 left-1/4 w-[60vw] h-[60vw] bg-accent-400/10 dark:bg-accent-400/5 blur-3xl rounded-full mix-blend-multiply dark:mix-blend-screen animate-float" style={{ animationDelay: '4s' }} />
-      </div>
+
 
       <div className="max-w-4xl mx-auto px-6 z-10 flex flex-col items-center text-center">
         <div className="animate-fade-up" style={{ animationDelay: '0ms', animationFillMode: 'both' }}>
@@ -23,7 +18,7 @@ const Hero = () => {
         </div>
         
         <h1 
-          className="animate-fade-up text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-500 dark:from-white dark:via-zinc-200 dark:to-zinc-400 bg-clip-text text-transparent"
+          className="animate-fade-up text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-900 dark:text-white"
           style={{ animationDelay: '100ms', animationFillMode: 'both' }}
         >
           {personalInfo.name}
@@ -42,7 +37,7 @@ const Hero = () => {
         >
           <a
             href="#projects"
-            className="w-full sm:w-auto bg-gradient-to-r from-accent-500 to-accent-600 text-white rounded-xl px-8 py-3.5 font-medium shadow-lg shadow-accent-500/25 hover:shadow-xl hover:shadow-accent-500/30 hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#09090b]"
+            className="w-full sm:w-auto bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-white rounded-xl px-8 py-3.5 font-medium shadow-lg shadow-accent-500/25 hover:shadow-xl hover:shadow-accent-500/30 hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-[#09090b]"
           >
             View Projects
           </a>
@@ -98,3 +93,4 @@ const Hero = () => {
 };
 
 export default Hero;
+

@@ -1,122 +1,62 @@
-# Suvin Poojary — Portfolio
+# Developer Portfolio
 
-Personal developer portfolio built with React, Vite, and Tailwind CSS.
+A modern, high-performance developer portfolio built with React, Vite, and Tailwind CSS. The architecture focuses on component reusability, centralized data management, and a highly polished UI featuring custom scroll animations and an HTML5 canvas background.
 
-## Stack
+##  Tech Stack
 
-- **React 18** — UI framework
-- **Vite 5** — Build tool
-- **Tailwind CSS 3** — Utility-first styling
-- **Vanilla JS** — Scroll animations, theme toggle, intersection observers
+- Framework: React 18
+- Build Tool: Vite 5
+- Styling: Tailwind CSS 3 (Utility-first with custom CSS variables)
+- Animations: Vanilla JS (Intersection Observers, `requestAnimationFrame`) + CSS Transitions
 
-## Getting Started
+## Technical Features
+
+- Centralized Content State: All data arrays, strings, and links are exported from a single JavaScript file (`src/data/content.js`). This cleanly separates the data layer from the React UI components.
+- Custom Canvas Engine: Utilizes an HTML5 `<canvas>` element (`AIParticles.jsx`) to render an optimized neural-network particle system that dynamically reacts to the active DOM theme.
+- Optimized Rendering:
+  - Implements `IntersectionObserver` for highly performant scroll-spy navigation and staggered CSS entrance animations.
+  - Fonts are loaded asynchronously via non-blocking media queries to prevent render-blocking.
+  - Avoids heavyweight icon libraries by relying on pure SVG React components.
+- Security Posture: Hardened with a strict Content-Security-Policy (CSP) in `index.html` and secure HTTP response headers configured for production.
+
+## Architecture Overview
+
+```text
+src/
+├── components/          # React UI components
+│   ├── icons/           # Pure SVG components
+│   ├── AIParticles.jsx  # Canvas-based background animation system
+│   ├── ScrollReveal.jsx # Reusable IntersectionObserver wrapper
+│   └── ...              # View sections (Hero, Projects, etc.)
+├── data/
+│   └── content.js       # Static data layer
+├── hooks/
+│   ├── useTheme.js      # LocalStorage-synchronized dark/light mode hook
+│   └── useActiveSection.js # Scroll-spy custom hook
+├── App.jsx              # Main layout and composition
+└── index.css            # Tailwind directives and custom CSS keyframes
+```
+
+## Local Development
 
 ### Prerequisites
+- Node.js (v18 or higher)
+- npm
 
-- [Node.js](https://nodejs.org/) (v18 or later)
-- npm (comes with Node.js)
-
-### Local Development
+### Setup
 
 ```bash
-# Clone the repository
-git clone <your-repo-url>
-cd portfolio
-
 # Install dependencies
 npm install
 
-# Start development server
+# Start the local Vite development server
 npm run dev
 ```
 
-The dev server will start at `http://localhost:5173`.
+## Deployment Configuration
 
-### Production Build
+The repository is fully configured for automated CI/CD deployment on Vercel. 
 
-```bash
-npm run build
-npm run preview   # Preview the production build locally
-```
-
-## Project Structure
-
-```
-portfolio/
-├── public/
-│   ├── favicon.svg          # Site favicon
-│   └── resume.pdf           # Downloadable resume
-├── src/
-│   ├── components/          # React components
-│   │   ├── Navbar.jsx
-│   │   ├── Hero.jsx
-│   │   ├── About.jsx
-│   │   ├── Skills.jsx
-│   │   ├── Experience.jsx
-│   │   ├── Projects.jsx
-│   │   ├── Education.jsx
-│   │   ├── Certifications.jsx
-│   │   ├── Contact.jsx
-│   │   ├── Footer.jsx
-│   │   ├── Section.jsx      # Reusable section wrapper
-│   │   ├── ScrollReveal.jsx # Scroll animation wrapper
-│   │   └── ThemeToggle.jsx  # Dark/light toggle
-│   ├── data/
-│   │   └── content.js       # All portfolio content (single source of truth)
-│   ├── hooks/
-│   │   ├── useTheme.js      # Theme persistence hook
-│   │   └── useActiveSection.js # Scroll-spy hook
-│   ├── App.jsx
-│   ├── App.css
-│   ├── index.css            # Tailwind directives + global styles
-│   └── main.jsx
-├── index.html
-├── tailwind.config.js
-├── postcss.config.js
-├── vite.config.js
-├── vercel.json
-└── package.json
-```
-
-## Deployment to Vercel
-
-### Option 1: Vercel CLI
-
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel
-```
-
-Follow the prompts. Vercel will auto-detect the Vite framework.
-
-### Option 2: GitHub Integration (Recommended)
-
-1. Push this project to a GitHub repository.
-2. Go to [vercel.com](https://vercel.com) and sign in.
-3. Click **"New Project"** and import the GitHub repository.
-4. Vercel will auto-detect Vite — no configuration needed.
-5. Click **Deploy**.
-
-The site will be live at `https://<project-name>.vercel.app`.
-
-### Environment
-
-No environment variables are required.
-
-## Content Updates
-
-All personal content is centralized in [`src/data/content.js`](src/data/content.js).
-Edit this single file to update your information, projects, skills, experience, etc.
-
-## Customization
-
-- **Colors**: Accent color uses Tailwind's `indigo` palette. Change throughout components or extend in `tailwind.config.js`.
-- **Fonts**: Inter (sans) + JetBrains Mono (mono), loaded via Google Fonts in `index.html`.
-- **Theme**: Dark mode by default. Toggle persisted in `localStorage`.
-
-## License
-
-MIT
+- Routing & Security: `vercel.json` handles SPA fallback routing (`rewrites`) and enforces strict security headers (`X-Content-Type-Options`, `X-Frame-Options`, `Permissions-Policy`).
+- Build Command: `npm run build`
+- Output Directory: `dist/`

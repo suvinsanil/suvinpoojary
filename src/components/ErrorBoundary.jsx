@@ -25,7 +25,7 @@ export default class ErrorBoundary extends Component {
             </p>
             <button
               onClick={() => window.location.reload()}
-              className="px-6 py-3 bg-gradient-to-r from-violet-500 to-indigo-500 text-white font-medium rounded-xl hover:from-violet-600 hover:to-indigo-600 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 dark:focus:ring-offset-[#09090b] transition-all"
+              className="px-6 py-3 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-white font-medium rounded-xl hover:from-violet-600 hover:to-indigo-600 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 dark:focus:ring-offset-[#09090b] transition-all"
             >
               Reload
             </button>
@@ -36,3 +36,4 @@ export default class ErrorBoundary extends Component {
     return this.props.children;
   }
 }
+

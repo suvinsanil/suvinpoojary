@@ -13,7 +13,7 @@ export default function Publications() {
             key={index}
             className="group relative bg-white dark:bg-white/[0.02] border border-zinc-200 dark:border-white/[0.08] p-6 sm:p-8 rounded-2xl hover:border-accent-500/20 dark:hover:border-accent-400/20 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-accent-500/5 transition-all duration-500"
           >
-            <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-accent-400 to-accent-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-t-2xl" />
+            <div className="absolute top-0 left-0 w-full h-0.5 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-t-2xl" />
             
             <div className="flex flex-col sm:flex-row justify-between gap-4 mb-4">
               <div>
@@ -47,4 +47,5 @@ export default function Publications() {
     </Section>
   );
 }
+
 
